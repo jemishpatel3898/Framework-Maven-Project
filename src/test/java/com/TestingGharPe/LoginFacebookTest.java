@@ -19,7 +19,7 @@ DataFile df = new DataFile();
   
 @BeforeMethod
 public void beforeMethod() throws IOException {
-lp.openBrowser(df.openBrowser());
+lp.openBrowser();
 lp.openFacebook();
 }
 

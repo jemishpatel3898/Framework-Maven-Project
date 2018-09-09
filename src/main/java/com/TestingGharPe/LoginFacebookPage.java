@@ -1,6 +1,8 @@
 package com.TestingGharPe;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -27,8 +29,11 @@ public static WebElement logIn;
 @FindBy(xpath=".//*[@id='globalContainer']/div[3]/div/div/div")
 public static WebElement errorMsg;
 
-public void openBrowser(String browser) throws IOException {
-
+public void openBrowser() throws IOException {
+FileInputStream fs = new FileInputStream("C:\\Testing\\prop.properties");
+Properties prop = new Properties();
+prop.load(fs);
+String browser = prop.getProperty("browser");
 if(browser.equals("Firefox")) {
 driver = new FirefoxDriver();
 }else if(browser.equals("Chrome")){
